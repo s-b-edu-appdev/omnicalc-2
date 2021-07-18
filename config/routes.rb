@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   get("/multiply", { :controller => "application", :action => "multiplication"})
   get("/wizard_divide", { :controller => "application", :action => "division_results"})
   get("/divide", { :controller => "application", :action => "division"})
-
+  get("/street_to_coords/new", { :controller => "application", :action => "stc_input"})
+  get("/street_to_coords/results", { :controller => "application", :action => "stc_results"})
+  get("/coords_to_weather/new", { :controller => "application", :action => "ctw_input"})
+  get("/coords_to_weather/results", { :controller => "application", :action => "ctw_results"})
+  get("/street_to_weather/new", { :controller => "application", :action => "stw_input"})
+  get("/street_to_weather/results", { :controller => "application", :action => "stw_results"})
 end

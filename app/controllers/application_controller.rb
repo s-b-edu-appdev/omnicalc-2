@@ -35,4 +35,22 @@ class ApplicationController < ActionController::Base
   def division
       render("divide_templates/input.html.erb")
   end
+  def stc_input
+      render("extra_templates/stc_input.html.erb")
+  end
+  def stc_results
+      render("extra_templates/stc_results.html.erb")
+  end
+  def ctw_input
+      render("extra_templates/ctw_input.html.erb")
+  end
+  def ctw_results
+      render("extra_templates/ctw_results.html.erb")
+  end
+  def stw_input
+      render("extra_templates/stw_input.html.erb")
+  end
+  def stw_results
+      render("extra_templates/stw_results.html.erb")
+  end
 end

@@ -36,11 +36,19 @@ class ApplicationController < ActionController::Base
       render("divide_templates/input.html.erb")
   end
   def stc_input
-      @add_in = params.fetch("add_in")
       render("extra_templates/stc_input.html.erb")
   end
   def stc_results
-      render("extra_templates/stc_results.html.erb")
+    @add_in = params.fetch("add_in")
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{@add_in}&key=" + ENV.fetch("GMAPS_KEY")
+    raw_data = open(url).read
+    parsed_data = JSON.parse(raw_data)
+    results = parsed_data.fetch("results").at(0)
+    geometry = results.fetch("geometry")
+    location = geometry.fetch("location")
+    @lat = location.fetch("lat")
+    @lng = location.fetch("lng")
+    render("extra_templates/stc_results.html.erb")
   end
   def ctw_input
       @lat = params.fetch("lat").to_f
